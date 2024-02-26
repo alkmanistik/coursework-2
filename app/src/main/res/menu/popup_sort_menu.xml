@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/none"
+        android:title="@string/resetFilter" />
+    <item android:id="@+id/sortName"
+        android:title="@string/sortName">
+        <menu>
+            <item
+                android:id="@+id/sortNameASC"
+                android:title="@string/textAsc"/>
+            <item
+                android:id="@+id/sortNameDESC"
+                android:title="@string/textDesc"/>
+        </menu>
+    </item>
+    <item android:id="@+id/sortPrice"
+        android:title="@string/sortPrice">
+        <menu>
+            <item
+                android:id="@+id/sortPriceASC"
+                android:title="@string/textAscPrice"/>
+            <item
+                android:id="@+id/sortPriceDESC"
+                android:title="@string/textDescPrice"/>
+        </menu>
+    </item>
+</menu>

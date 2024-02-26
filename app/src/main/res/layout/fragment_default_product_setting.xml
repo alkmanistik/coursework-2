@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDefault">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
+
+
+        <TextView
+            android:id="@+id/textType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/colorText"
+            android:textSize="20sp"
+            android:visibility="gone"
+            android:text="@string/statusDone" />
+
+        <TextView
+            android:id="@+id/textDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="#89b061"
+            android:textSize="20sp"
+            android:visibility="gone"
+            android:text="7 марта 2020\n20:01" />
+
+        <Button
+            android:id="@+id/buttonChange"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="10dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/colorBack"
+            android:textColor="@color/colorText"
+            android:text="@string/changeAmount"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/buttonDone"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="10dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/colorBack"
+            android:textColor="@color/colorText"
+            android:text="@string/textChangeToDone"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/buttonDelete"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/colorBack"
+            android:textColor="@color/colorText"
+            android:text="@string/deleteFromList"/>
+    </LinearLayout>
+
+</FrameLayout>
