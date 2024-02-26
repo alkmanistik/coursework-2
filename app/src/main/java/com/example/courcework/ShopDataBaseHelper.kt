@@ -46,6 +46,20 @@ class ShopDataBaseHelper(val context: Context, val factory: CursorFactory?):
 
     }
 
+    fun updateUser(idUser: Int, nm:String, ph:String, ad:String, sx:String, image:ByteArray){
+        val values = ContentValues()
+        values.put("nickname", nm)
+        values.put("phone", ph)
+        values.put("address", ad)
+        values.put("sex", sx)
+        values.put("image", image)
+
+        val db = this.writableDatabase
+        db.update(tables[3], values, "id = ?", arrayOf(idUser.toString()))
+        db.close()
+
+    }
+
     fun getUser(login: String, password: String): Int{
         val db = this.readableDatabase
         val result = db.rawQuery("SELECT * FROM ${tables[3]} WHERE login = '$login' AND password = '$password' or email = '$login' AND password = '$password'", null)
