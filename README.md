@@ -4,7 +4,7 @@ Android-приложение на языке kotlin используя XML вё�
 Представляет из себя магазин товаров работающий на локальной базе данных в SQLite.
 Приложение похоже на аналоги по типу Wildberries.
 ## Как он выглядет
-![Logo](https://github.com/alkmanistik/coursework-2/raw/master/photo/Yard_Logo.jpg)
+![Logo](https://github.com/alkmanistik/coursework-2/raw/master/photo/Yard_Logo.png)
 ![catalog](https://github.com/alkmanistik/coursework-2/raw/master/photo/catalog.jpg)
 ![catalog_search](https://github.com/alkmanistik/coursework-2/raw/master/photo/catalog_search.jpg)
 ![basket](https://github.com/alkmanistik/coursework-2/raw/master/photo/basket.jpg)
