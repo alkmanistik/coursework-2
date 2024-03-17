@@ -33,7 +33,7 @@ class RegActivity : AppCompatActivity() {
             if (userLogin == "" || userEmail == "" || userPassword == ""){
                 Toast.makeText(this, getString(R.string.warningNotFullData), Toast.LENGTH_SHORT).show()
             }
-            else{
+            else if(checkLog(this, userLogin) && checkEmail(this, userEmail) && checkPas(this, userPassword)){
                 val db = ShopDataBaseHelper(this, null)
                 val checkUser = db.getCheckUser(userLogin, userEmail)
                 if (checkUser){

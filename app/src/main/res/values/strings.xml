@@ -13,7 +13,7 @@
     <string name="ButtonCatalog">Каталог</string>
     <string name="ButtonBasket">Корзина</string>
     <string name="ButtonAccount">Профиль</string>
-    <string name="ButtonSetting">Настройки</string>
+    <string name="ButtonSetting">Поддержка</string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="yourEmail">Ваш email</string>
     <string name="yourSex">Ваш пол</string>
@@ -23,7 +23,7 @@
     <string name="pageProfile">Мои данные</string>
     <string name="pageBasket">Корзина</string>
     <string name="pageCatalog">Каталог</string>
-    <string name="pageSettings">Настройки</string>
+    <string name="pageSettings">Поддержка</string>
     <string name="pageChangeProfile">Изменение данных</string>
     <string name="buttonChangePhoto">Изменить фото</string>
     <string name="sexMan">Мужчина</string>
@@ -52,7 +52,7 @@
     <string name="webLinkConfident">https://performia-test.ru/policy</string>
     <string name="textPageContact">Информация о компании</string>
     <string name="webLinkContact">https://alkmanistik.github.io/</string>
-    <string name="textCall">Позвонить в техподдержку</string>
+    <string name="textCall">Позвонить в поддержку</string>
     <string name="textWriteEmail">Написать нам на почту</string>
     <string name="deleteFromList">Удалить из списка</string>
     <string name="statusDone">Доставлено</string>
@@ -75,4 +75,9 @@
     <string name="textDesc">Я - А</string>
     <string name="textAscPrice">По возрастанию</string>
     <string name="textDescPrice">По убыванию</string>
+    <string name="log">Логин</string>
+    <string name="pas">Пароль</string>
+    <string name="email">Электронный адрес</string>
+    <string name="warningMinLength">%1$s должен состоять минимум из %2$d символов.</string>
+    <string name="warningMaxLength">%1$s должен состоять максимум из %2$d символов.</string>
 </resources>

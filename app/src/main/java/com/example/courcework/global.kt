@@ -1,16 +1,21 @@
 package com.example.courcework
 
+import android.content.Context
 import android.icu.text.SimpleDateFormat
+import android.widget.Toast
+
 
 val tables = listOf<String>("Log","Product", "Purchases", "Users", "Wishlist")
 val status = listOf<String>("WAIT", "DELIVERY", "DONE", "WISH")
 val sortingBy = listOf<String>("ASC", "DESC")
 val sort = listOf<String>("","short_name", "price")
 val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-const val posted_by = "89033528719"
-val addresses: Array<String> = arrayOf("bspu@mail.ru")
+const val posted_by = "000"
+val addresses: Array<String> = arrayOf("example@gmail.com")
 const val subject = "Обращение в тех. поддержку: "
 const val maxAmount = 99
+const val minLength = 8
+const val maxLength = 20
 
 val queryShopDB = listOf<String>("CREATE TABLE IF NOT EXISTS Log (id_purchases INTEGER NOT NULL, date NUMERIC NOT NULL, status TEXT NOT NULL);",
     "CREATE TABLE IF NOT EXISTS Product (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, full_name TEXT NOT NULL, short_name TEXT NOT NULL, category TEXT NOT NULL, description TEXT, price INTEGER NOT NULL, image TEXT);",
@@ -39,6 +44,32 @@ fun limitation(min:Int, max:Int, value:Int): Int{
         max
     else
         value
+}
+
+fun checkLog(context:Context, text:String): Boolean{
+    if (text.length < minLength){
+        Toast.makeText(context, context.getString(R.string.warningMinLength,context.getString(R.string.log), minLength), Toast.LENGTH_LONG).show()
+        return false
+    }
+    if (text.length > maxLength){
+        Toast.makeText(context, context.getString(R.string.warningMaxLength,context.getString(R.string.log), maxLength), Toast.LENGTH_LONG).show()
+        return false
+    }
+    return true
+}
+fun checkEmail(context:Context, text:String): Boolean{
+    return true
+}
+fun checkPas(context:Context, text:String): Boolean{
+    if (text.length < minLength){
+        Toast.makeText(context, context.getString(R.string.warningMinLength,context.getString(R.string.pas), minLength), Toast.LENGTH_LONG).show()
+        return false
+    }
+    if (text.length > maxLength){
+        Toast.makeText(context, context.getString(R.string.warningMaxLength,context.getString(R.string.pas), maxLength), Toast.LENGTH_LONG).show()
+        return false
+    }
+    return true
 }
 
 enum class ProductCategory(private val displayName: String) {

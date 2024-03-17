@@ -14,7 +14,7 @@
         android:background="@color/none"
         android:contentDescription="@string/textNull"
         android:elevation="10dp"
-        android:src="@drawable/baseline_favorite_border_24"
+        android:src="@drawable/baseline_favorite_border_page"
         app:layout_constraintEnd_toEndOf="@+id/cardProduct"
         app:layout_constraintTop_toTopOf="@+id/cardProduct" />
 
