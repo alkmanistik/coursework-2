@@ -3,6 +3,7 @@ package com.example.courcework
 import android.content.Context
 import android.icu.text.SimpleDateFormat
 import android.widget.Toast
+import androidx.core.text.isDigitsOnly
 
 
 val tables = listOf<String>("Log","Product", "Purchases", "Users", "Wishlist")
@@ -14,10 +15,9 @@ const val posted_by = "000"
 val addresses: Array<String> = arrayOf("example@gmail.com")
 const val subject = "Обращение в тех. поддержку: "
 const val maxAmount = 99
-const val minLength = 8
-const val maxLength = 20
 
-val queryShopDB = listOf<String>("CREATE TABLE IF NOT EXISTS Log (id_purchases INTEGER NOT NULL, date NUMERIC NOT NULL, status TEXT NOT NULL);",
+
+val queryShopDB = listOf<String>("CREATE TABLE IF NOT EXISTS Product (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, full_name TEXT NOT NULL, short_name TEXT NOT NULL, category TEXT NOT NULL, description TEXT, price INTEGER NOT NULL, image TEXT, amount INTEGER NOT NULL);",
     "CREATE TABLE IF NOT EXISTS Product (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, full_name TEXT NOT NULL, short_name TEXT NOT NULL, category TEXT NOT NULL, description TEXT, price INTEGER NOT NULL, image TEXT);",
     "INSERT INTO Product (id, full_name, short_name, category, description, price, image) VALUES (1, 'Голубой модульный диван подставка', 'Модульный диван', 'Диваны', 'Качественный диван, который обеспечит вам не только получить удовольствие от сна, но и от обычной активности, диван разбирается в столик и содержит модульные хранилища для вещей.', 46000, 'BlueSofaModul');",
     "INSERT INTO Product (id, full_name, short_name, category, description, price, image) VALUES (2, 'Серый диван в стиле LOFT', 'LOFT диван', 'Диваны', 'Удобный разбираемый диван для гостевых комнат, стиль дивана увеличивает удовлетворение от комнатной обстановки, и помогает отдохнуть от ежедневной рутины', 35000, 'GreySofaLoft');",
@@ -46,27 +46,44 @@ fun limitation(min:Int, max:Int, value:Int): Int{
         value
 }
 
-fun checkLog(context:Context, text:String): Boolean{
-    if (text.length < minLength){
+const val minLength = 8 // минимальная длина
+const val maxLength = 20 // максимальная длина
+
+val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+".toRegex() // формат почты
+val logAndPasPattern = "[a-zA-Z0-9._-]".toRegex() // формат логина и пароля
+fun checkLog(context:Context, login:String): Boolean{
+    if (login.length < minLength){
         Toast.makeText(context, context.getString(R.string.warningMinLength,context.getString(R.string.log), minLength), Toast.LENGTH_LONG).show()
         return false
     }
-    if (text.length > maxLength){
+    if (login.length > maxLength){
         Toast.makeText(context, context.getString(R.string.warningMaxLength,context.getString(R.string.log), maxLength), Toast.LENGTH_LONG).show()
         return false
     }
+    if (!login.matches(logAndPasPattern)){
+        Toast.makeText(context, context.getString(R.string.warningErrorPattern,context.getString(R.string.pas)), Toast.LENGTH_LONG).show()
+        return false
+    }
     return true
 }
-fun checkEmail(context:Context, text:String): Boolean{
+fun checkEmail(context:Context, email:String): Boolean{
+    if (!email.matches(emailPattern)){
+        Toast.makeText(context, context.getString(R.string.warningEmail), Toast.LENGTH_LONG).show()
+        return false
+    }
     return true
 }
-fun checkPas(context:Context, text:String): Boolean{
-    if (text.length < minLength){
+fun checkPas(context:Context, password:String): Boolean{
+    if (password.length < minLength){
         Toast.makeText(context, context.getString(R.string.warningMinLength,context.getString(R.string.pas), minLength), Toast.LENGTH_LONG).show()
         return false
     }
-    if (text.length > maxLength){
+    if (password.length > maxLength){
         Toast.makeText(context, context.getString(R.string.warningMaxLength,context.getString(R.string.pas), maxLength), Toast.LENGTH_LONG).show()
+        return false
+    }
+    if (!password.matches(logAndPasPattern)){
+        Toast.makeText(context, context.getString(R.string.warningErrorPattern,context.getString(R.string.pas)), Toast.LENGTH_LONG).show()
         return false
     }
     return true

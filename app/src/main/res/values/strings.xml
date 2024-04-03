@@ -80,4 +80,6 @@
     <string name="email">Электронный адрес</string>
     <string name="warningMinLength">%1$s должен состоять минимум из %2$d символов.</string>
     <string name="warningMaxLength">%1$s должен состоять максимум из %2$d символов.</string>
+    <string name="warningEmail">Неправильно введён адрес электронной почты.</string>
+    <string name="warningErrorPattern">%1$s должен состоять из латинских букв, цифр и символов ._-</string>
 </resources>
